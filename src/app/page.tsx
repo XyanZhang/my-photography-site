@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Layout from './layout/index'
-
+import PhotoList from './PhotoList'
 export default function Home() {
   return (
     <>
@@ -18,8 +18,10 @@ export default function Home() {
               </div>
             </div>
           </section>
-          {/*  */}
-          <section></section>
+          {/* 瀑布流 */}
+          <section>
+            <PhotoList photos={[]}></PhotoList>
+          </section>
         </main>
       </Layout>
     </>
