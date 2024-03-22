@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import SearchInput from '@/app/components/SearchInput';
+import Nav from '@/app/components/nav';
 
 const Header = () => {
   return (
@@ -10,8 +11,8 @@ const Header = () => {
           <SearchInput></SearchInput>
         </div>
       </div>
-      <div className='w-1/2'>
-
+      <div className='w-1/2 flex justify-end'>
+        <Nav></Nav>
       </div>
     </div>
   );
