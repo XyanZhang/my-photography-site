@@ -8,7 +8,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       
-      <header className='fixed top-0 left-0 right-0 h-16 border-b-black'>
+      <header className='fixed top-0 left-0 right-0 h-16 border-b-black z-10'>
         <Header></Header>
       </header>
       <main>{children}</main>

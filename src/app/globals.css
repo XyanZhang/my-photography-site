@@ -76,3 +76,7 @@ body {
   display: flex;
   align-items: center;
 }
+
+.max-h-200vh {
+  max-height: 200vh;
+}
