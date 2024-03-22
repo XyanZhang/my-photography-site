@@ -44,7 +44,7 @@ body {
   height: var(--min-height);
 }
 .banner--right {
-  /* background-image: url(/banner-2.jpg); */
+  background-image: url(/banner-2.jpg);
 }
 .border-r-black {
   @apply border-r border-black;
