@@ -17,6 +17,10 @@
   }
 }
 
+html {
+  background-color: #fff;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -36,9 +40,24 @@ body {
   border: 1px solid #000;
 }
 .main__content--height {
-  margin-top: 68px;
+  margin-top: 64px;
   height: var(--min-height);
 }
 .banner--right {
-  background-image: url(/banner-2.jpg);
+  /* background-image: url(/banner-2.jpg); */
+}
+.border-r-black {
+  @apply border-r border-black;
+}
+.border-b-black {
+  @apply border-b border-black;
+}
+.border-l-black {
+  @apply border-l border-black;
+}
+.border-t-black {
+  @apply border-t border-black;
+}
+.w-400 {
+  width: 400px;
 }
