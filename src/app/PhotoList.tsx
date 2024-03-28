@@ -10,7 +10,7 @@ const PhotoList: React.FC<PhotoListProps> = ({ photos }) => {
     <div className='flex flex-wrap flex-col max-h-200vh overflow-hidden'>
       {photos.map((photo, index) => {
         return (
-          <div className='w-1/5 h-60 bg-black m-4 opacity-30' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px' }}>
+          <div className='h-60 bg-black m-4 opacity-30' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px' }}>
             index: {index}
           </div>
         )
