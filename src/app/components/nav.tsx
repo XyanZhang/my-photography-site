@@ -23,6 +23,11 @@ const Nav = () => {
           Gallery
         </Link>
       </li>
+      <li>
+        <Link href="/upload">
+          Upload
+        </Link>
+      </li>
     </ul>
   );
 };
