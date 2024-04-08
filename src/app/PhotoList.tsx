@@ -60,7 +60,7 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
     <div className='relative flex flex-wrap flex-col' id="waterfall-container" ref={waterfall_container}>
       {photos.map((photo, index) => {
         return (
-          <div className='item bg-black opacity-30 border-4 transition-all' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px', width: '300px' }}>
+          <div className='item bg-black opacity-30 border-4 transition-all duration-500' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px', width: '300px' }}>
             index: {index}
           </div>
         )
