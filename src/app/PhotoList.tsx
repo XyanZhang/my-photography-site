@@ -1,30 +1,18 @@
 'use client'; 
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
 
 interface PhotoListProps {
   photos: string[];
 }
 
-const PhotoList: React.FC<PhotoListProps> = ({ photos }) => {
-
-  return (
-    <div className='flex flex-wrap flex-col max-h-200vh overflow-hidden'>
-      {photos.map((photo, index) => {
-        return (
-          <div className='h-60 bg-black m-4 opacity-30' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px' }}>
-            index: {index}
-          </div>
-        )
-      })}
-    </div>
-  );
-};
-
 const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   const waterfall_container:any = useRef()
-  useEffect(() => {
+  
+  useLayoutEffect(() => {
+    let columns = Math.floor(window.innerWidth / 300)
+    calcuHeight(columns);
     
     window.addEventListener('resize', () => {
       let columns = Math.floor(window.innerWidth / 300)
@@ -53,7 +41,7 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
       item.style.top = columnHeights[shortestColumn] + 'px';
       
       // 更新最短列的高度
-      columnHeights[shortestColumn] += item.offsetHeight;
+      columnHeights[shortestColumn] += item.offsetHeight + 10;
     })
   }
   return (
