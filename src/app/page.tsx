@@ -1,9 +1,15 @@
+'use client';
+
 import Layout from './layout/index'
 import PhotoList from './PhotoList'
 
 import SearchInput from '@/app/components/SearchInput';
+import usePhotoList from './hooks/usePhotoList';
 
 export default function Home() {
+
+  const { data } = usePhotoList()
+  console.log(data)
   return (
     <>
       <Layout>
@@ -31,7 +37,7 @@ export default function Home() {
           <section className='py-14 px-10'>
             <p className='text-3xl mb-6 font-medium'>LATEST IMAGES:</p>
             {/* 瀑布流照片 */}
-            <PhotoList photos={new Array(40).fill(1)}></PhotoList>
+            <PhotoList photos={data}></PhotoList>
           </section>
           {/* 底部图片加描述 */}
           <section></section>

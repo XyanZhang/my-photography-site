@@ -8,3 +8,11 @@ export function fileUpload(formData: any) {
     }
   });
 }
+
+export function getPictures(data: Object) {
+  return requst.get('/api/photo/list', data);
+}
+
+export function savePhoto(data: Object) {
+  return requst.post('/api/photo/save', data);
+}

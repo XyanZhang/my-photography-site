@@ -7,20 +7,22 @@ interface PhotoListProps {
   photos: string[];
 }
 
+const PhotoWidth = 100;
+
 const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   const waterfall_container:any = useRef()
   
   useLayoutEffect(() => {
-    let columns = Math.floor(window.innerWidth / 300)
+    let columns = Math.floor(window.innerWidth / PhotoWidth)
     calcuHeight(columns);
 
     window.addEventListener('resize', () => {
-      let columns = Math.floor(window.innerWidth / 300)
+      let columns = Math.floor(window.innerWidth / PhotoWidth)
       calcuHeight(columns)
     })
 
     // 监听滚动事件
-    window.addEventListener('scroll', lazyLoad);
+    // window.addEventListener('scroll', lazyLoad);
 
   }, [])
 
@@ -29,7 +31,7 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
     const items = waterfall_container.current?.querySelectorAll('.item') || [];
 
     // 定义列数和列宽
-    const columnWidth = 300;
+    const columnWidth = PhotoWidth;
 
     // 定义一个数组来存储每列的高度
     const columnHeights = Array.from({ length: columns }, () => 0);
@@ -50,10 +52,11 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   }
   return (
     <div className='relative flex flex-wrap flex-col' id="waterfall-container" ref={waterfall_container}>
-      {photos.map((photo, index) => {
+      {photos.map((photo: any, index) => {
         return (
-          <div key={index} className='lazy-load item bg-black opacity-30 border-4 transition-all duration-500' style={{ backgroundColor: getRandomColor(), height: index%3 == 0 ? '300px' : '160px', width: '300px' }}>
-            index: {index}
+          <div key={index} className='lazy-load item bg-black border-4 transition-all duration-500' style={{ backgroundColor: getRandomColor(), width: PhotoWidth+'px' }}>
+            {/* index: {index} */}
+            <img src={photo.url.replace('public', 'api')} alt="" />
           </div>
         )
       })}

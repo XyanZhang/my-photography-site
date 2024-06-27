@@ -4,8 +4,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/upload',
-        destination: 'http://localhost:6100/upload',
+        source: '/api/:path*',
+        destination: 'http://192.168.4.55:12333/:path*',
       },
     ]
   },

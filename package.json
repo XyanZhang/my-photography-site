@@ -13,7 +13,8 @@
     "flowbite-react": "^0.8.0",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "vditor": "^3.10.4"
   },
   "devDependencies": {
     "@types/node": "^20",
