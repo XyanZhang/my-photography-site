@@ -7,7 +7,7 @@ interface PhotoListProps {
   photos: string[];
 }
 
-const PhotoWidth = 100;
+const PhotoWidth = 300;
 
 const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   const waterfall_container:any = useRef()
@@ -22,7 +22,7 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
     })
 
     // 监听滚动事件
-    // window.addEventListener('scroll', lazyLoad);
+    window.addEventListener('scroll', lazyLoad);
 
   }, [])
 
@@ -54,9 +54,9 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
     <div className='relative flex flex-wrap flex-col' id="waterfall-container" ref={waterfall_container}>
       {photos.map((photo: any, index) => {
         return (
-          <div key={index} className='lazy-load item bg-black border-4 transition-all duration-500' style={{ backgroundColor: getRandomColor(), width: PhotoWidth+'px' }}>
+          <div key={index} className='lazy-load item border-4 border-transparent transition-all duration-500' style={{ width: PhotoWidth+'px' }}>
             {/* index: {index} */}
-            <img src={photo.url.replace('public', 'api')} alt="" />
+            <img data-src={photo.url.replace('public', 'api')} alt="" />
           </div>
         )
       })}
@@ -77,10 +77,13 @@ function randomColorSet() {
 }
 
 function lazyLoad() {
-  const images:NodeListOf<any> = document.querySelectorAll('.lazy-load');
+  const images:NodeListOf<any> = document.querySelectorAll('.lazy-load img');
   images.forEach(img => {
     if (isInViewport(img)) {
-      img.style.backgroundColor = randomColorSet(); // 移除懒加载类，避免重复加载
+      // img.style.backgroundColor = randomColorSet(); // 移除懒加载类，避免重复加载
+      const src = img.getAttribute('data-src');
+      img.src = src; // 替换 src 属性，加载实际图片
+      img.classList.remove('lazy-load'); // 移除懒加载类，避免重复加载
     }
   });
 }
