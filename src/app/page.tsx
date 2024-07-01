@@ -9,10 +9,8 @@ import usePhotoList from './hooks/usePhotoList';
 export default function Home() {
 
   const { data } = usePhotoList()
-  console.log(data)
   return (
     <>
-      <Layout>
         <main className="min-h-screen">
           {/* 首屏 */}
           <section className="flex flex-wrap h-screen bg-white main__content--height border-b-black">
@@ -42,7 +40,6 @@ export default function Home() {
           {/* 底部图片加描述 */}
           <section></section>
         </main>
-      </Layout>
     </>
   );
 }
