@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request:any = axios.create({
-  baseURL: './',
+  baseURL: '/',
 });
 
 request.interceptors.response.use(function (response: any) {

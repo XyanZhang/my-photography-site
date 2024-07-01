@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className='fixed top-0 left-0 right-0 h-16 border-b-black z-10'>
         <Header></Header>
       </header>
-      <main>{children}</main>
+      <main style={{marginTop: '63px'}}>{children}</main>
       {/* <footer>Footer</footer> */}
     </div>
   );

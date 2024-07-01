@@ -11,7 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       width: {
-        "420": "420px"
+        "420": "420px",
+        "640": "640px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

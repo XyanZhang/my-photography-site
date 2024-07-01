@@ -1,5 +1,6 @@
 'use client'; 
 
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
 
@@ -11,6 +12,7 @@ const PhotoWidth = 300;
 
 const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   const waterfall_container:any = useRef()
+  const router = useRouter()
   
   useLayoutEffect(() => {
     let columns = Math.floor(window.innerWidth / PhotoWidth)
@@ -25,6 +27,10 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
     window.addEventListener('scroll', lazyLoad);
 
   }, [])
+
+  function gotoDetail(id: number) {
+    router.push('/photo/detail?id='+id)
+  }
 
   function calcuHeight(columns:number) {
   
@@ -56,7 +62,7 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
         return (
           <div key={index} className='lazy-load item border-4 border-transparent transition-all duration-500' style={{ width: PhotoWidth+'px' }}>
             {/* index: {index} */}
-            <img data-src={photo.url.replace('public', 'api')} alt="" />
+            <img data-src={photo.url.replace('public', 'api')} alt="" onClick={() => gotoDetail(photo.id)}/>
           </div>
         )
       })}

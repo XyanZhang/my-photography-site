@@ -80,3 +80,25 @@ body {
 .max-h-200vh {
   max-height: 200vh;
 }
+
+.article h1 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: 1.55em;
+}
+.article h2 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: 1.45em;
+}
+.article h3 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: 1.38em;
+}

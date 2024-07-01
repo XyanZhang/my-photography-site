@@ -13,6 +13,13 @@ export function getPictures(data: Object) {
   return requst.get('/api/photo/list', data);
 }
 
+
+export type numberOrString = number | string; 
+
+export function getPictureDetail(id:numberOrString) {
+  return requst.get('/api/photo/detail?id='+id);
+}
+
 export function savePhoto(data: Object) {
   return requst.post('/api/photo/save', data);
 }
