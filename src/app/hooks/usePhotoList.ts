@@ -14,7 +14,9 @@ export default function usePhotoList() {
       size: 10,
     }
     getPictures(payload).then((res: any) => {
-      setData(res || [])
+      if(res && res.code == 200) {
+        setData(res.data || [])
+      }
     })
   }
 
