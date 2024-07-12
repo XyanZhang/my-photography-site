@@ -13,20 +13,29 @@ const PhotoWidth = 300;
 const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
   const waterfall_container:any = useRef()
   const router = useRouter()
+
+  const lastImg = useRef<any>()
   
   useLayoutEffect(() => {
-    let columns = Math.floor(window.innerWidth / PhotoWidth)
-    calcuHeight(columns);
+    changeHeight();
 
-    window.addEventListener('resize', () => {
-      let columns = Math.floor(window.innerWidth / PhotoWidth)
-      calcuHeight(columns)
-    })
+    window.addEventListener('resize', changeHeight)
 
     // 监听滚动事件
-    window.addEventListener('scroll', lazyLoad);
+    window.addEventListener('scroll', () => {
+      lazyLoad()
+      changeHeight()
+    });
 
+    adjustContentHeight()
   }, [])
+
+  
+
+  function changeHeight() {
+    let columns = Math.floor(window.innerWidth / PhotoWidth)
+    calcuHeight(columns)
+  }
 
   function gotoDetail(id: number) {
     router.push('/photo/detail?id='+id)
@@ -56,13 +65,22 @@ const PhotoList2: React.FC<PhotoListProps> = ({ photos }) => {
       columnHeights[shortestColumn] += item.offsetHeight + 10;
     })
   }
+
+  function adjustContentHeight () {
+    // 获取最后一张图片的位置
+    lastImg.current && (
+      lastImg.current.onload = (e:any) => {
+        console.log(e)
+      }
+    )
+  }
   return (
     <div className='relative flex flex-wrap flex-col' id="waterfall-container" ref={waterfall_container}>
       {photos.map((photo: any, index) => {
         return (
-          <div key={index} className='lazy-load item border-4 border-transparent transition-all duration-500' style={{ width: PhotoWidth+'px' }}>
+          <div key={index} className='lazy-load item border-4 border-transparent transition-all duration-500 blur-sm' style={{ width: PhotoWidth+'px' }}>
             {/* index: {index} */}
-            <img data-src={photo.url.replace('public', 'api')} alt="" onClick={() => gotoDetail(photo.id)}/>
+            <img ref={index == photos.length - 1 ? lastImg : null} data-src={photo.url.replace('public', 'api')} alt="" onClick={() => gotoDetail(photo.id)}/>
           </div>
         )
       })}

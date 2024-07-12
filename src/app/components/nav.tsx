@@ -28,6 +28,11 @@ const Nav = () => {
           Upload
         </Link>
       </li>
+      <li>
+        <Link href="/login">
+          Login
+        </Link>
+      </li>
     </ul>
   );
 };
