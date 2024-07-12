@@ -31,6 +31,12 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+@layer hover {
+  a:hover {
+    color: theme('colors.site.2')!important;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
