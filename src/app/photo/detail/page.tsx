@@ -3,6 +3,7 @@
 import { numberOrString } from "@/app/api/api";
 import PImage from "@/app/components/PImage";
 import usePhotoDetail from "@/app/hooks/usePhotoDetail";
+import { urlHandle } from '@/app/utils/index'
 
 export default function Detail({searchParams}: {searchParams: {id: numberOrString}}) {
   let id = searchParams.id;
@@ -23,7 +24,3 @@ export default function Detail({searchParams}: {searchParams: {id: numberOrStrin
   );
 }
 
-function urlHandle(url:string) {
-
-  return '/' + url.replaceAll('\\','/')
-}

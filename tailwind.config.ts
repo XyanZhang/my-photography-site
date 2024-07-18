@@ -10,7 +10,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
+      color: {
         site: {
           '0': '#797979',
           '1': '#FFEBEB',

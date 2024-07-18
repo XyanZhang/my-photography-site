@@ -33,7 +33,7 @@ body {
 
 @layer hover {
   a:hover {
-    color: theme('colors.site.2')!important;
+    color: theme('color.site.2')!important;
   }
 }
 

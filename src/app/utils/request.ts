@@ -13,7 +13,14 @@ request.interceptors.response.use(function (response: any) {
 }, function (error: any) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
-  return Promise.reject(error);
+  console.log(error)
+  let response = error.response
+  if(!response) {
+    return Promise.reject(error);
+  }
+  if(response.data.code == 409) {
+    return response.data.data;
+  }
 });
 
 export default request;

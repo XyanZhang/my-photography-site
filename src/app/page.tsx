@@ -3,8 +3,11 @@
 import Layout from './layout/index'
 import PhotoList from './PhotoList'
 
+import { urlHandle } from '@/app/utils/index'
 import SearchInput from '@/app/components/SearchInput';
 import usePhotoList from './hooks/usePhotoList';
+import { userInfo } from './api/api';
+import { useEffect } from 'react';
 
 export default function Home() {
 
@@ -26,7 +29,10 @@ export default function Home() {
             </div>
             {/* 右边 */}
             <div className="w-1/2">
-              <div className="w-full h-full banner--right bg-cover bg-no-repeat bg-center">
+              <div 
+                className="w-full h-full banner--right bg-cover bg-no-repeat bg-center"
+                style={{backgroundImage: `url(${urlHandle(data && data[2]?.url).replace('public', 'api')}`}}  
+              >
               </div>
             </div>
           </section>

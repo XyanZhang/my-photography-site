@@ -23,3 +23,14 @@ export function getPictureDetail(id:numberOrString) {
 export function savePhoto(data: Object) {
   return requst.post('/api/photo/save', data);
 }
+
+export function saveUser(data: any) {
+  return requst.post('/api/user/save', data);
+}
+
+export function userInfo() {
+  return requst.get('/api/user/info');
+}
+export function userLogin(data: any) {
+  return requst.post('/api/user/login', data);
+}
